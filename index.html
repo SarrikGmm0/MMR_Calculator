@@ -17,6 +17,7 @@
     </select>
     <button onclick="calculateMmr()">Рассчитать</button>
     <div id="mmrResult"></div>
+    <div id="kdResult"></div>
 </div>
 
 <script>
@@ -24,7 +25,7 @@
         let kills = parseInt(document.getElementById("kills").value) || 0;
         let deaths = parseInt(document.getElementById("deaths").value) || 1; // чтобы не было деления на 0
         let result = document.getElementById("result").value;
-        let kd = kills / deaths;
+        let kd = (kills / deaths).toFixed(2);
         let mmr = 0;
 
         if (result === "Победа") {
@@ -38,6 +39,7 @@
         }
 
         document.getElementById("mmrResult").innerHTML = `Ваш MMR: ${mmr}`;
+        document.getElementById("kdResult").innerHTML = `Ваш K/D: ${kd}`;
     }
 </script>
 </body>
