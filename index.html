@@ -28,6 +28,12 @@
         let kd = (kills / deaths).toFixed(2);
         let mmr = 0;
 
+        if (kills === 0) {
+            document.getElementById("mmrResult").innerHTML = `Ваш MMR: 0 (Без убийств)`;
+            document.getElementById("kdResult").innerHTML = `Ваш K/D: ${kd}`;
+            return;
+        }
+
         if (result === "Победа") {
             if (kd > 2.0) mmr = Math.floor(Math.random() * (99 - 80 + 1)) + 80;
             else if (kd >= 1.0) mmr = Math.floor(Math.random() * (79 - 60 + 1)) + 60;
