@@ -16,4 +16,6 @@ function calculateMmr() {
     }
 
     document.getElementById("mmr").innerText = "Ваш ММР: " + mmr;
+    document.getElementById("kdValue").innerText = "Ваш K/D: " + kd.toFixed(2);
+
 }
