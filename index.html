@@ -3,17 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MMR Calculator</title>
+    <title>MMR Калькулятор</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Калькулятор ММР</h1>
-<select id="result">
-    <option value="win">Победа</option>
-    <option value="lose">Поражение</option>
-</select>
-<input type="number" id="kd" placeholder="K/D">
-<button onclick="calculateMmr()">Рассчитать ММР</button>
-<p id="mmr">Ваш ММР: </p>
-<script src="script.js"></script>
+<h1>MMR Калькулятор</h1>
+<div class="container">
+    <input type="number" id="kills" placeholder="Убийства">
+    <input type="number" id="deaths" placeholder="Смерти">
+    <select id="result">
+        <option value="Победа">Победа</option>
+        <option value="Поражение">Поражение</option>
+    </select>
+    <button onclick="calculateMmr()">Рассчитать</button>
+    <div id="mmrResult"></div>
+</div>
+
+<script>
+    function calculateMmr() {
+        let kills = parseInt(document.getElementById("kills").value) || 0;
+        let deaths = parseInt(document.getElementById("deaths").value) || 1; // чтобы не было деления на 0
+        let result = document.getElementById("result").value;
+        let kd = kills / deaths;
+        let mmr = 0;
+
+        if (result === "Победа") {
+            if (kd > 2.0) mmr = Math.floor(Math.random() * (99 - 80 + 1)) + 80;
+            else if (kd >= 1.0) mmr = Math.floor(Math.random() * (79 - 60 + 1)) + 60;
+            else mmr = Math.floor(Math.random() * (39 - 20 + 1)) + 20;
+        } else {
+            if (kd > 2.0) mmr = Math.floor(Math.random() * (-10 - -30 + 1)) - 10;
+            else if (kd >= 1.0) mmr = Math.floor(Math.random() * (-31 - -50 + 1)) - 31;
+            else mmr = Math.floor(Math.random() * (-51 - -70 + 1)) - 51;
+        }
+
+        document.getElementById("mmrResult").innerHTML = `Ваш MMR: ${mmr}`;
+    }
+</script>
 </body>
 </html>
