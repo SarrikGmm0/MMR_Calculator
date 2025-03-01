@@ -1,8 +1,8 @@
 function calculateMmr() {
     let result = document.getElementById("result").value;
-    let kills = parseFloat(document.getElementById("kills").value);
-    let deaths = parseFloat(document.getElementById("deaths").value);
-    let kd = (deaths === 0) ? kills : (kills / deaths).toFixed(2);
+    let kills = parseInt(document.getElementById("kills").value);
+    let deaths = parseInt(document.getElementById("deaths").value);
+    let kd = deaths === 0 ? kills : kills / deaths;
     let mmr = 0;
 
     if (result === "win") {
@@ -15,6 +15,5 @@ function calculateMmr() {
         else mmr = Math.floor(Math.random() * (11 - 30 + 1)) + 30;
     }
 
-    document.getElementById("resultMmr").innerText = "Ваш MMR: " + mmr;
-    document.getElementById("resultKd").innerText = "Ваш K/D: " + kd;
+    document.getElementById("mmr").innerText = "Ваш ММР: " + mmr;
 }
