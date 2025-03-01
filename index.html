@@ -1,1 +1,19 @@
-
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMR Calculator</title>
+</head>
+<body>
+<h1>Калькулятор ММР</h1>
+<select id="result">
+    <option value="win">Победа</option>
+    <option value="lose">Поражение</option>
+</select>
+<input type="number" id="kd" placeholder="K/D">
+<button onclick="calculateMmr()">Рассчитать ММР</button>
+<p id="mmr">Ваш ММР: </p>
+<script src="script.js"></script>
+</body>
+</html>
