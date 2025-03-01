@@ -1,7 +1,7 @@
 function calculateMmr() {
     let result = document.getElementById("result").value;
-    let kills = parseInt(document.getElementById("kills").value);
-    let deaths = parseInt(document.getElementById("deaths").value);
+    let kills = parseInt(document.getElementById("kills").value) || 0;
+    let deaths = parseInt(document.getElementById("deaths").value) || 0;
     let kd = deaths === 0 ? kills : kills / deaths;
     let mmr = 0;
 
