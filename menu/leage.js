@@ -28,23 +28,23 @@ const ranks = [
 
 let currentMMR = 0;
 
-function updateProgress(mmr) {
-  currentMMR = mmr;
+function updateProgress(addMMR) {
+  currentMMR += addMMR;
   let currentRank = ranks[0];
   for (let i = 0; i < ranks.length; i++) {
-    if (mmr >= ranks[i].mmr) {
+    if (currentMMR >= ranks[i].mmr) {
       currentRank = ranks[i];
     }
   }
   const nextRank = ranks.find(r => r.mmr > currentRank.mmr) || currentRank;
-  const progress = ((mmr - currentRank.mmr) / (nextRank.mmr - currentRank.mmr)) * 100;
+  const progress = ((currentMMR - currentRank.mmr) / (nextRank.mmr - currentRank.mmr)) * 100;
   document.getElementById("mmrFill").style.width = `${progress}%`;
-  document.getElementById("mmrText").textContent = `${mmr} ММР`;
+  document.getElementById("mmrText").textContent = `${currentMMR} ММР`;
   document.getElementById("mmrRank").textContent = currentRank.name;
 }
 
-// Пример для проверки
-updateProgress(1800);
+// Пример добавления ММР
+// updateProgress(500); // добавит 500 ММР
 </script>
 
 <style>
