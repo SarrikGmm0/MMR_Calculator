@@ -44,10 +44,6 @@ function updateProgress(mmr) {
   document.getElementById("mmrText").textContent = `${currentMMR} ММР`;
   document.getElementById("mmrRank").textContent = currentRank.name;
 }
-
-// Пример использования
-updateProgress(400);
-updateProgress(500);
 </script>
 
 <style>
