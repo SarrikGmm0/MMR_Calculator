@@ -1,28 +1,40 @@
-body {
-    text-align: center;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+.mmr-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 300px;
+  height: 40px;
+  background: #ccc;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.container {
-    margin-top: 20px;
+.mmr-bar {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #eee;
+  border: 2px solid #000;
 }
 
-input, select, button {
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.mmr-fill {
+  height: 100%;
+  background: blue;
+  transition: width 0.5s ease;
 }
 
-button {
-    background-color: #007BFF;
-    color: white;
-    cursor: pointer;
+.mmr-text, .mmr-rank {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  color: #000;
 }
 
-button:hover {
-    background-color: #0056b3;
+.mmr-text {
+  left: 10px;
+}
+
+.mmr-rank {
+  right: 10px;
 }
