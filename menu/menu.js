@@ -1,26 +1,17 @@
-import { useState } from 'react';
-import { Card, CardContent, Button } from '@/components/ui';
+import React from "react";
+import { Button } from "@/components/ui/button";
 
-export default function Menu() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleOpen = () => setIsOpen(true);
-  const handleClose = () => setIsOpen(false);
-
+const Menu = ({ onClose }) => {
   return (
-    <div className="menu-container">
-      <Button onClick={handleOpen} className="menu-button">Меню</Button>
-      {isOpen && (
-        <Card className="menu-popup">
-          <CardContent>
-            <Button className="menu-item">Настройки</Button>
-            <Button className="menu-item">О нас</Button>
-            <Button className="menu-item">Выход</Button>
-            <Button onClick={handleClose} className="menu-item">Закрыть</Button>
-          </CardContent>
-        </Card>
-      )}
+    <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center">
+      <div className="bg-white rounded-2xl p-8 shadow-lg grid gap-4">
+        <Button className="w-full" onClick={() => console.log("Настройки")}>Настройки</Button>
+        <Button className="w-full" onClick={() => console.log("О нас")}>О нас</Button>
+        <Button className="w-full" onClick={() => console.log("Выход")}>Выход</Button>
+        <Button className="w-full" onClick={onClose}>Закрыть</Button>
+      </div>
     </div>
   );
-}
+};
 
+export default Menu;
